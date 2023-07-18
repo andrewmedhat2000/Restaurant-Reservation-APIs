@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "ded7bd11-d81f-42e0-ba01-1270febbbdee",
+		"name": "Restaurant",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "23256443"
+	},
+	"item": [
+		{
+			"name": "check_available",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"from_time\":\"2023-07-17 07:57:01\",\r\n        \"to_time\":\"2023-07-17 09:57:00\",\r\n        \"num_of_guests\":\"4\",\r\n        \"table_id\":\"1\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/checkAvailability"
+			},
+			"response": []
+		},
+		{
+			"name": "create_reservation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"from_time\":\"2023-07-17 07:57:01\",\r\n        \"to_time\":\"2023-07-17 09:57:00\",\r\n        \"customer_id\":\"1\",\r\n        \"num_of_guests\":\"7\",\r\n        \"table_id\":\"1\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/create_reservation"
+			},
+			"response": []
+		},
+		{
+			"name": "menu_list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:8000/api/menu"
+			},
+			"response": []
+		},
+		{
+			"name": "create_order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"date\":\"2023-07-17 09:57:00\",\r\n        \"customer_id\":\"1\",\r\n        \"reservation_id\":\"2\",\r\n        \"waiter_id\":\"1\",\r\n        \"meal_id\":[1,2,3],\r\n        \"table_id\":\"1\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/create_order",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"create_order"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "2023-07-17 07:57:01",
+							"disabled": true
+						},
+						{
+							"key": "to_time",
+							"value": "2023-07-17 09:57:00",
+							"disabled": true
+						},
+						{
+							"key": "customer_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "table_id",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "checkout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:8000/api/checkout"
+			},
+			"response": []
+		}
+	]
+}
